@@ -1,14 +1,14 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 
 import List from '../../components/List';
 import { Container } from '../../styles/GlobalStyles';
-import * as actions from '../../store/modules/request/actions';
+// import * as actions from '../../store/modules/request/actions';
 
 export default function Search() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  dispatch(actions.searchRequest());
+  // dispatch(actions.searchRequest());
 
   return (
     <Container>

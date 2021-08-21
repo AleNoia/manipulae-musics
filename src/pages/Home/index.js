@@ -26,6 +26,7 @@ export default function Home() {
   return (
     <Container>
       {/* <Loading isLoading={isLoading} /> */}
+      {/* <h1>{isSearch ? 'Pesquisa' : 'Home'}</h1> */}
       <h1>Home</h1>
       <hr />
       <List />
