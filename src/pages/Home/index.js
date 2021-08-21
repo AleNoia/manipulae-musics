@@ -1,12 +1,10 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import axios from '../../services/axios';
-import * as actions from '../../store/modules/request/actions';
-
-// import Loading from '../../components/Loading';
+import List from '../../components/List';
 import { Container } from '../../styles/GlobalStyles';
-import { CardContainer } from './styled';
+import * as actions from '../../store/modules/request/actions';
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -20,18 +18,17 @@ export default function Home() {
     getData();
   });
 
-  const musics = useSelector((state) => state.request.listChartTracks);
-  // const isLoading = useSelector((state) => state.request.isLoading);
+  // React.useEffect(() => {
+  // dispatch(actions.searchSuccess());
+  // console.log('Home');
+  // });
 
   return (
     <Container>
       {/* <Loading isLoading={isLoading} /> */}
       <h1>Home</h1>
       <hr />
-
-      {musics.map((music) => (
-        <CardContainer key={String(music.id)}>{music.title}</CardContainer>
-      ))}
+      <List />
     </Container>
   );
 }

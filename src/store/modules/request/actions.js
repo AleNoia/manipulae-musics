@@ -6,8 +6,21 @@ export function chartTracksRequest(payload) {
     payload,
   };
 }
+
 export function chartTracksSuccess() {
   return {
     type: types.CHART_TRACKS_SUCCESS,
+  };
+}
+
+export function searchRequest() {
+  return {
+    type: types.SEARCH_REQUEST,
+  };
+}
+
+export function searchSuccess() {
+  return {
+    type: types.SEARCH_SUCCESS,
   };
 }

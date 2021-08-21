@@ -3,6 +3,7 @@ import * as types from '../types';
 const initialState = {
   listChartTracks: [],
   isLoading: false,
+  isSeach: false,
 };
 
 export default function (state = initialState, action) {
@@ -14,9 +15,15 @@ export default function (state = initialState, action) {
       return newState;
     }
 
-    case types.CHART_TRACKS_SUCCESS: {
+    case types.SEARCH_REQUEST: {
       const newState = { ...state };
-      // newState.isLoading = false;
+      newState.isSeach = true;
+      return newState;
+    }
+
+    case types.SEARCH_SUCCESS: {
+      const newState = { ...state };
+      newState.isSeach = false;
       return newState;
     }
 
