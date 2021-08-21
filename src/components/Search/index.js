@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import axios from '../../services/axios';
 import * as actions from '../../store/modules/request/actions';
+import history from '../../services/history';
 
 import { Container, Form } from './styled';
 
@@ -13,8 +14,8 @@ export default function Serach() {
   const [searchValue, setSeachValue] = React.useState('');
 
   async function getData() {
+    // dispatch(actions.searchRequest());
     const response = await axios.get(`/search?q=${searchValue}`);
-    dispatch(actions.searchRequest());
     dispatch(actions.chartTracksRequest([response.data.data][0]));
     // console.log(response.data.data);
   }
@@ -23,6 +24,7 @@ export default function Serach() {
     e.preventDefault();
     try {
       getData();
+      history.push('/search');
     } catch (error) {
       toast.error(error);
     }
