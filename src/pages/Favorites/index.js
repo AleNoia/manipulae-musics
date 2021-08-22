@@ -1,22 +1,35 @@
 import React from 'react';
-// import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
+// import axios from '../../services/axios';
+// import List from '../../components/List';
 import { Container } from '../../styles/GlobalStyles';
-import { Title } from './styled';
-// import * as exampleActions from '../../store/modules/example/actions';
+import * as actions from '../../store/modules/request/actions';
 
-export default function Login() {
-  // const dispatch = useDispatch();
+export default function Favorites() {
+  const dispatch = useDispatch();
+  const favorites = useSelector((state) => state.favorites.listFavorites);
 
-  // function handleClick(e) {
-  //   e.preventDefault();
+  async function getData() {
+    dispatch(actions.chartTracksRequest([favorites]));
+    console.log(favorites);
+  }
 
-  //   dispatch(exampleActions.clicaBotaoRequest());
-  // }
+  React.useEffect(() => {
+    getData();
+  });
 
   return (
     <Container>
-      <Title>Favorites</Title>
+      {/* <Loading isLoading={isLoading} /> */}
+      <h1>Favorites</h1>
+      <hr />
+      {favorites.map((listItem) => (
+        <div key={String(listItem.id)}>
+          {listItem.name || listItem.title} <br />
+          {listItem.type}
+        </div>
+      ))}
     </Container>
   );
 }

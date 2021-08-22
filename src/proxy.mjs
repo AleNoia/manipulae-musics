@@ -31,7 +31,7 @@ app.get(
 );
 
 app.get(
-  '/genre',
+  '/search/track',
   createProxyMiddleware({
     target: API_SERVICE_URL,
     changeOrigin: true,
@@ -39,7 +39,47 @@ app.get(
 );
 
 app.get(
-  '/track/3135556',
+  '/search/artist',
+  createProxyMiddleware({
+    target: API_SERVICE_URL,
+    changeOrigin: true,
+  })
+);
+
+app.get(
+  '/search/album',
+  createProxyMiddleware({
+    target: API_SERVICE_URL,
+    changeOrigin: true,
+  })
+);
+
+app.get(
+  '/search/podcast',
+  createProxyMiddleware({
+    target: API_SERVICE_URL,
+    changeOrigin: true,
+  })
+);
+
+app.get(
+  '/search/playlist',
+  createProxyMiddleware({
+    target: API_SERVICE_URL,
+    changeOrigin: true,
+  })
+);
+
+app.get(
+  '/search/radio',
+  createProxyMiddleware({
+    target: API_SERVICE_URL,
+    changeOrigin: true,
+  })
+);
+
+app.get(
+  '/genre',
   createProxyMiddleware({
     target: API_SERVICE_URL,
     changeOrigin: true,

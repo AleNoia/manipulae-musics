@@ -18,15 +18,9 @@ export default function Home() {
     getData();
   });
 
-  // React.useEffect(() => {
-  // dispatch(actions.searchSuccess());
-  // console.log('Home');
-  // });
-
   return (
     <Container>
       {/* <Loading isLoading={isLoading} /> */}
-      {/* <h1>{isSearch ? 'Pesquisa' : 'Home'}</h1> */}
       <h1>Home</h1>
       <hr />
       <List />
