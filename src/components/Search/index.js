@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 
 import { Form } from 'react-bootstrap';
 import { FaSearch } from 'react-icons/fa';
-import { toast } from 'react-toastify';
 import axios from '../../services/axios';
 import history from '../../services/history';
 import * as actions from '../../store/modules/request/actions';
@@ -24,12 +23,8 @@ export default function Serach() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    try {
-      getData();
-      history.push('/search');
-    } catch (error) {
-      toast.error(error);
-    }
+    getData();
+    history.push('/search');
   }
 
   return (
