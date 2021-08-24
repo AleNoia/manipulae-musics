@@ -1,12 +1,13 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
+import { Form } from 'react-bootstrap';
+import { FaSearch } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import axios from '../../services/axios';
-import * as actions from '../../store/modules/request/actions';
 import history from '../../services/history';
-
-import { Container, Form } from './styled';
+import * as actions from '../../store/modules/request/actions';
+import { StyeledSearch, StyeledSelect, StyledButtonSearch } from './styled';
 
 export default function Serach() {
   const dispatch = useDispatch();
@@ -19,8 +20,6 @@ export default function Serach() {
       `/search/${typeSeachValue}?q=${searchValue}`
     );
     dispatch(actions.chartTracksRequest([response.data.data][0]));
-    // console.log(response.data.data);
-    // console.log(`/search/${typeSeachValue}?q=${searchValue}`);
   }
 
   function handleSubmit(e) {
@@ -34,29 +33,32 @@ export default function Serach() {
   }
 
   return (
-    <Container>
-      <Form onSubmit={handleSubmit}>
-        <label htmlFor={searchValue}>
-          <input
-            type="search"
-            value={searchValue}
-            onChange={(e) => setSeachValue(e.target.value)}
-            placeholder="Pesquise por um artista, álbum, música..."
-          />
-          <select
-            value={typeSeachValue}
-            onChange={(e) => setTypeSeachValue(e.target.value)}
-          >
-            <option value="track">track</option>
-            <option value="artist">artist</option>
-            <option value="album">album</option>
-            <option value="podcast">podcast</option>
-            <option value="playlist">playlist</option>
-            <option value="radio">radio</option>
-          </select>
-          <button type="submit">Pesquisar</button>
-        </label>
+    <>
+      <Form onSubmit={handleSubmit} className="d-flex">
+        <StyeledSearch
+          type="search"
+          placeholder="Faça uma pesquisa"
+          value={searchValue}
+          onChange={(e) => setSeachValue(e.target.value)}
+        />
+        <StyledButtonSearch type="submit">
+          <FaSearch size={18} />
+        </StyledButtonSearch>
       </Form>
-    </Container>
+
+      <StyeledSelect
+        as="select"
+        type="select"
+        value={typeSeachValue}
+        onChange={(e) => setTypeSeachValue(e.target.value)}
+      >
+        <option value="track">Músicas</option>
+        <option value="artist">Artista</option>
+        <option value="album">Álbum</option>
+        <option value="podcast">Podcast</option>
+        <option value="playlist">Playlist</option>
+        <option value="radio">Radio</option>
+      </StyeledSelect>
+    </>
   );
 }

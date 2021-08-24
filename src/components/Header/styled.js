@@ -1,16 +1,19 @@
 import styled from 'styled-components';
-import { primaryColor } from '../../config/colors';
+import { Navbar } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-export const Nav = styled.nav`
-  background: ${primaryColor};
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+const primary = (props) => props.theme.colors.primary;
+const primaryDark = (props) => props.theme.colors.primaryDark;
 
-  a {
+export const StyeledNavbar = styled(Navbar)`
+  height: 72px;
+  background: ${primaryDark};
+`;
+
+export const StyledLink = styled(Link)`
+  padding: 0 10px;
+  color: ${primary};
+  &:hover {
     color: #fff;
-    margin: 0 10px 0 0;
-    font-weight: bold;
   }
 `;

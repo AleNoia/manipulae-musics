@@ -1,35 +1,54 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { Container } from 'react-bootstrap';
 
-// import axios from '../../services/axios';
-// import List from '../../components/List';
-import { Container } from '../../styles/GlobalStyles';
-import * as actions from '../../store/modules/request/actions';
+import {
+  ListDiv,
+  CardContainer,
+  Title,
+  Type,
+  TitleContainer,
+  FirstContainer,
+  PlayerContainer,
+} from './styled';
+
+import { Section, ContainerMargin } from '../../styles/GlobalStyles';
 
 export default function Favorites() {
-  const dispatch = useDispatch();
   const favorites = useSelector((state) => state.favorites.listFavorites);
 
-  async function getData() {
-    dispatch(actions.chartTracksRequest([favorites]));
-    console.log(favorites);
-  }
-
-  React.useEffect(() => {
-    getData();
-  });
+  React.useEffect(() => {}, [favorites]);
 
   return (
-    <Container>
-      {/* <Loading isLoading={isLoading} /> */}
-      <h1>Favorites</h1>
-      <hr />
-      {favorites.map((listItem) => (
-        <div key={String(listItem.id)}>
-          {listItem.name || listItem.title} <br />
-          {listItem.type}
-        </div>
-      ))}
-    </Container>
+    <ContainerMargin>
+      <Container>
+        <Section>
+          <Title>Favorites</Title>
+          <ListDiv>
+            {favorites.map((listItem) => (
+              <CardContainer key={String(listItem[0].id)}>
+                <FirstContainer>
+                  <TitleContainer>
+                    <Title>{listItem[0].name || listItem[0].title}</Title>
+                    <Type>{listItem[0].type}</Type>
+                  </TitleContainer>
+
+                  {listItem[0].preview ? (
+                    <PlayerContainer>
+                      <audio controls>
+                        <source src={listItem[0].preview} type="audio/mpeg" />
+                        <track src={listItem[0].preview} kind="captions" />
+                      </audio>
+                    </PlayerContainer>
+                  ) : (
+                    <></>
+                  )}
+                </FirstContainer>
+              </CardContainer>
+            ))}
+          </ListDiv>
+        </Section>
+      </Container>
+    </ContainerMargin>
   );
 }

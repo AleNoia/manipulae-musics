@@ -1,9 +1,11 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
+import { Container } from 'react-bootstrap';
 import axios from '../../services/axios';
 import List from '../../components/List';
-import { Container } from '../../styles/GlobalStyles';
+import Carrousel from '../../components/Carrousel';
+import { Section, Title } from '../../styles/GlobalStyles';
 import * as actions from '../../store/modules/request/actions';
 
 export default function Home() {
@@ -19,11 +21,14 @@ export default function Home() {
   });
 
   return (
-    <Container>
-      {/* <Loading isLoading={isLoading} /> */}
-      <h1>Home</h1>
-      <hr />
-      <List />
-    </Container>
+    <>
+      <Carrousel />
+      <Container>
+        <Section>
+          <Title>Home</Title>
+          <List />
+        </Section>
+      </Container>
+    </>
   );
 }

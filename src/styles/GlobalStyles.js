@@ -4,8 +4,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default createGlobalStyle`
 
-@import url('https://fonts.googleapis.com/css2?family=Signika:wght@400;700&display=swap');
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -25,7 +23,8 @@ time, mark, audio, video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-  font-family: 'Signika', sans-serif !important;
+  font-family: 'Signika', sans-serif;
+  text-decoration: none !important;
 }
 // HTML5 display-role reset for older browsers
 article, aside, details, figcaption, figure,
@@ -34,7 +33,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
   line-height: 1;
-  color: ${colors.primaryDarkColor};
+  background: ${(props) => props.theme.colors.primary};
 }
 ol, ul {
   list-style: none;
@@ -68,4 +67,16 @@ export const Container = styled.section`
   padding: 30px;
   border-radius: 4px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+`;
+
+export const Title = styled.h1`
+  font-size: 36px;
+`;
+
+export const Section = styled.section`
+  padding: 50px 0;
+`;
+
+export const ContainerMargin = styled.div`
+  margin-top: 72px;
 `;

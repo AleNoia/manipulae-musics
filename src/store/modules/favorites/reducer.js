@@ -11,14 +11,6 @@ export default function (state = initialState, action) {
     case types.FAVORITES_REQUEST: {
       const newState = { ...state };
       newState.listFavorites.push(action.payload);
-      console.log(newState.listFavorites);
-      // newState.isLoading = true;
-      return newState;
-    }
-
-    case types.FAVORITES_SUCCESS: {
-      const newState = { ...state };
-      newState.isSeach = true;
       return newState;
     }
 

@@ -1,11 +1,17 @@
 import React from 'react';
 
-import { Container } from '../../styles/GlobalStyles';
+import { Container, Card } from 'react-bootstrap';
+import { ContainerMargin } from '../../styles/GlobalStyles';
+// import { card } from './styled';
 
 export default function Page404() {
   return (
-    <Container>
-      <h1>Essa página não existe</h1>
-    </Container>
+    <ContainerMargin>
+      <Container>
+        <Card>
+          <h1>Essa página não existe</h1>
+        </Card>
+      </Container>
+    </ContainerMargin>
   );
 }

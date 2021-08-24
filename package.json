@@ -7,21 +7,21 @@
     "@testing-library/react": "^10.4.3",
     "@testing-library/user-event": "^12.0.9",
     "axios": "^0.21.1",
+    "bootstrap": "^5.1.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "history": "^4.10.1",
     "http-proxy-middleware": "^2.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
+    "react-bootstrap": "^1.6.1",
     "react-dom": "^16.13.1",
     "react-icons": "^3.10.0",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.1",
-    "react-toastify": "^6.0.6",
     "redux": "^4.0.5",
     "redux-persist": "^6.0.0",
-    "redux-saga": "^1.1.3",
     "styled-components": "^5.1.1"
   },
   "scripts": {
@@ -40,7 +40,7 @@
       "not dead",
       "not op_mini all"
     ],
-  "development": [
+    "development": [
       ">0.3%",
       "not ie 11",
       "not dead",

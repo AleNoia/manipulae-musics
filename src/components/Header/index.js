@@ -1,20 +1,28 @@
 import React from 'react';
-import { FaHome, FaStar } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
 
-import { Nav } from './styled';
+import { Navbar, Nav, Container } from 'react-bootstrap';
+
+import { StyeledNavbar, StyledLink } from './styled';
 import Search from '../Search';
 
 export default function Header() {
   return (
-    <Nav>
-      <Link to="/">
-        <FaHome size={24} />
-      </Link>
-      <Link to="/favorites">
-        <FaStar size={24} />
-      </Link>
-      <Search />
-    </Nav>
+    <StyeledNavbar variant="dark" expand="lg" fixed="top">
+      <Container>
+        <StyledLink to="/">
+          <Navbar.Brand>Manipulaê Music</Navbar.Brand>
+        </StyledLink>
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
+          <Nav className="me-auto" style={{ maxHeight: '100px' }} navbarScroll>
+            <StyledLink to="/">Home</StyledLink>
+            <StyledLink to="/favorites">Favoritos</StyledLink>
+          </Nav>
+          <Nav>
+            <Search />
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </StyeledNavbar>
   );
 }

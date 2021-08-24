@@ -1,7 +1,7 @@
 import * as types from '../types';
 
 const initialState = {
-  listChartTracks: [],
+  listRequest: [],
   isLoading: false,
   isSeach: false,
 };
@@ -10,8 +10,15 @@ export default function (state = initialState, action) {
   switch (action.type) {
     case types.CHART_TRACKS_REQUEST: {
       const newState = { ...state };
-      newState.listChartTracks = action.payload;
-      // newState.isLoading = true;
+
+      if (action.payload[1].isFavorite) {
+        const listRequestFavorites = action.payload[0].favorites;
+        newState.listRequest = listRequestFavorites;
+
+        return newState;
+      }
+
+      newState.listRequest = action.payload;
       return newState;
     }
 
