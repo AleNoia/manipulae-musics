@@ -11,13 +11,13 @@ Uma interface de listagem de músicas utilizando a API da Deezer e ReactJS
 </p>
 
 
-![image](https://user-images.githubusercontent.com/82424777/122660889-6f08aa00-d15b-11eb-8e13-148b009fd0c7.png)
+![image](https://user-images.githubusercontent.com/82424777/130542344-2797bbd8-97f0-48ad-abc8-57d77c4854cc.png)
+
 
 
 # 📌 Índice
 * 💡 [Funcionalidades](#features)
 * 🛠 [Instalação](#Installation)
-* 🤝 [Contribuição](#Contributing) 
 * ⚙ [Tecnologias e linguagens utilizadas](#TechnologiesUsed)
 * 🧾 [Licença](#License)
 ***
