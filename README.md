@@ -78,7 +78,7 @@ node proxy.mjs
 
 ```
 
-Execute o Front-end do projeto: arquivo: 
+Execute o Front-end do projeto:
 ```
 
 npm start
